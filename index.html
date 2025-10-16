@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atmosfy — Ambient Sound Mixer</title>
+  <link rel="preconnect" href="https://www.youtube.com">
+  <link rel="dns-prefetch" href="https://www.youtube.com">
+  <link rel="stylesheet" href="src/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>Atmosfy</h1>
+          <div class="subtitle">Layer rain, waves, city, + your music into a custom ambience</div>
+        </div>
+      </div>
+      <div class="pill" id="audioStatus">Audio: stopped</div>
+    </header>
+
+    <section class="grid" id="mixer">
+      <!-- Rain -->
+      <article class="card" data-source="rain">
+        <h2>Rain</h2>
+        <div class="row">
+          <label class="toggle" title="Toggle rain">
+            <input type="checkbox" id="toggle-rain" />
+            <span class="slider"></span>
+          </label>
+          <div class="muted">On/Off</div>
+        </div>
+        <div class="row">
+          <input type="range" id="vol-rain" min="0" max="100" value="60" />
+        </div>
+        <p class="muted">Using local asset when provided.</p>
+        <audio id="audio-rain" loop crossorigin="anonymous">
+          <!-- Example: <source src="public/audio/rain-soft.mp3" type="audio/mpeg" /> -->
+        </audio>
+      </article>
+
+      <!-- Ocean -->
+      <article class="card" data-source="ocean">
+        <h2>Ocean Waves</h2>
+        <div class="row">
+          <label class="toggle" title="Toggle ocean">
+            <input type="checkbox" id="toggle-ocean" />
+            <span class="slider"></span>
+          </label>
+          <div class="muted">On/Off</div>
+        </div>
+        <div class="row">
+          <input type="range" id="vol-ocean" min="0" max="100" value="55" />
+        </div>
+        <p class="muted">Using local asset when provided.</p>
+        <audio id="audio-ocean" loop crossorigin="anonymous"></audio>
+      </article>
+
+      <!-- City -->
+      <article class="card" data-source="city">
+        <h2>City / Urban</h2>
+        <div class="row">
+          <label class="toggle" title="Toggle city">
+            <input type="checkbox" id="toggle-city" />
+            <span class="slider"></span>
+          </label>
+          <div class="muted">On/Off</div>
+        </div>
+        <div class="row">
+          <input type="range" id="vol-city" min="0" max="100" value="40" />
+        </div>
+        <p class="muted">Using local asset when provided.</p>
+        <audio id="audio-city" loop crossorigin="anonymous"></audio>
+      </article>
+
+      <!-- YouTube -->
+      <article class="card" data-source="youtube">
+        <h2>YouTube Audio</h2>
+        <div class="row stack">
+          <label for="yt-url" class="sr-only">YouTube URL</label>
+          <input id="yt-url" type="url" placeholder="Paste a YouTube link (any video)" spellcheck="false" />
+          <div class="row">
+            <button class="primary" id="yt-load">Load</button>
+            <button id="yt-clear">Clear</button>
+            <span class="muted" id="yt-status">Idle</span>
+          </div>
+        </div>
+        <div class="row">
+          <label class="toggle" title="Toggle YouTube">
+            <input type="checkbox" id="toggle-youtube" />
+            <span class="slider"></span>
+          </label>
+          <div class="muted">On/Off</div>
+        </div>
+        <div class="row">
+          <input type="range" id="vol-youtube" min="0" max="100" value="35" />
+        </div>
+        <div class="yt-shell">
+          <div class="muted" style="margin-bottom:6px">Mini player (kept visible for compliance; audio-focused)</div>
+          <div class="yt-mini"><div id="yt-player"></div></div>
+        </div>
+      </article>
+    </section>
+
+    <div class="footer">
+      <div class="hint">Tip: Toggle a layer on to start audio (browsers require a click).</div>
+      <div class="hint">MVP scaffolding — effects & assets to be added next.</div>
+    </div>
+  </div>
+
+  <!-- YouTube IFrame API -->
+  <script>
+    (function loadYT(){
+      const tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      document.head.appendChild(tag);
+    })();
+  </script>
+  <script src="src/app.js"></script>
+</body>
+</html>
