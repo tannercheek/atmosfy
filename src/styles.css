@@ -1,6 +1,6 @@
 /* Core theme tokens */
 :root {
-  --bg: #0f1115;
+  --bg: #030303;
   --panel: #171a21;
   --panel-2: #1e2230;
   --text: #e6e8ee;
@@ -13,24 +13,79 @@
 }
 * { box-sizing: border-box; }
 html, body { height: 100%; }
+
+/* Header */
+header { 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 16px; 
+  margin-bottom: 33px;  /* ← change from 22px to 100px or whatever you like */
+}
+
+/* Body */
 body {
   margin: 0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   color: var(--text);
-  background: radial-gradient(1200px 700px at 10% 0%, #121622 0%, #0f1115 60%),
-              radial-gradient(1000px 600px at 100% 100%, #0f141a 0%, #0b0d10 60%);
+  background: url('../public/images/background-2.jpg') no-repeat center center fixed;
+  background-size: cover;
 }
 .container { max-width: 1100px; margin: 0 auto; padding: 28px 20px 60px; }
-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
 .brand { display:flex; align-items:center; gap:12px; }
-.logo { width: 38px; height: 38px; border-radius: 10px; background: conic-gradient(from 180deg at 50% 50%, var(--accent), var(--accent-2), var(--accent)); filter: saturate(120%); box-shadow: inset 0 0 0 2px rgba(255,255,255,0.06), var(--shadow); }
+
+/* Logo */
+.logo-type {
+  font-family: "Instrument Serif", serif;
+  letter-spacing: 0.2px;
+  font-size: 1.9rem;
+  font-style: italic;
+}
+
+/* Grid */
+.stage {
+  min-height: calc(100vh - 200px); /* full viewport height minus header/footer space */
+  display: flex;
+  align-items: center;     /* vertical center */
+  justify-content: center; /* horizontal center */
+  padding: 40px 0;
+}
+
+.grid { 
+  display: grid; 
+  grid-template-columns: repeat(12, 1fr); 
+  gap: 16px;
+  width: 100%;  /* keeps grid full-width within container */
+}
+
+/* Cards */
+.card { 
+  grid-column: span 12;
+  background: linear-gradient(180deg, var(--panel) 0%, var(--panel-2) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+.card h2 {
+  font-size: 1.05rem;
+  margin: 0 0 12px;
+}
+
+/* YouTube card */
+.card[data-source="youtube"] {
+  grid-column: 1 / -1; /* span entire row */
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* two columns: left controls, right video */
+  gap: 20px;
+  align-items: start;
+}
+
 h1 { font-size: 1.35rem; line-height: 1; margin: 0; letter-spacing: 0.4px; }
 .subtitle { color: var(--muted); font-size: 0.95rem; }
-.grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
-.card { grid-column: span 12; background: linear-gradient(180deg, var(--panel) 0%, var(--panel-2) 100%); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
 @media (min-width: 720px) { .card { grid-column: span 6; }}
 @media (min-width: 1024px) { .card { grid-column: span 3; }}
-.card h2 { font-size: 1.05rem; margin: 0 0 12px; }
 .row { display:flex; align-items:center; justify-content: space-between; gap: 12px; margin: 10px 0; }
 .row.stack { align-items: stretch; flex-direction: column; }
 .muted { color: var(--muted); font-size: 0.9rem; }
