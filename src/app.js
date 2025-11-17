@@ -20,6 +20,8 @@
     youtube: { gain: null, toggle: null, slider: null }
   };
 
+  
+
   function ensureAudioContext(){ if (!audioCtx) { const AC = window.AudioContext || window.webkitAudioContext; audioCtx = new AC(); } }
   function connectMediaEl(id){ const src = sources[id]; if (!src.el || src.gain) return; ensureAudioContext(); src.gain = audioCtx.createGain(); src.gain.gain.value = (parseInt(src.slider.value,10)||0)/100; const node = audioCtx.createMediaElementSource(src.el); node.connect(src.gain).connect(audioCtx.destination); }
   function updateStatus(){ const anyOn = Object.keys(sources).some(k => { if (k==='youtube') return sources.youtube.toggle.checked && ytPlayer && ytReady; return sources[k].toggle.checked; }); document.getElementById('audioStatus').textContent = anyOn ? 'Audio: playing' : 'Audio: stopped'; }
@@ -36,4 +38,5 @@
     vol.addEventListener('input', () => { if (!ytPlayer || typeof ytPlayer.setVolume !== 'function') return; ytPlayer.setVolume(clamp(parseInt(vol.value,10),0,100)); }); }
 
   window.addEventListener('DOMContentLoaded', () => { ['rain','ocean','city'].forEach(setupLocalSource); setupYouTube(); });
+  
 })();

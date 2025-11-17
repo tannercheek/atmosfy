@@ -13,9 +13,8 @@
   <!--Google Font "Instrument Serif" For Logo-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-</head>
-<body>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <body>
   <div class="container">
     <!--Header-->
     <header>
@@ -39,9 +38,12 @@
             <div class="row stack">
               <label for="yt-url" class="sr-only">YouTube URL</label>
               <input id="yt-url" type="url" placeholder="Paste a YouTube link (any video)" spellcheck="false" />
+              <p class="muted" style="margin: 4px 0;">Note: Some videos (especially music) may have embedding disabled. Try regular YouTube videos if one doesn't work.</p>
               <div class="row">
-                <button class="primary" id="yt-load">Load</button>
-                <button id="yt-clear">Clear</button>
+                <div>
+                  <button class="primary" id="yt-load">Load</button>
+                  <button id="yt-clear">Clear</button>
+                </div>
                 <span class="muted" id="yt-status">Idle</span>
               </div>
             </div>
@@ -57,7 +59,6 @@
             </div>
           </div>
           <div class="yt-shell">
-            <div class="muted" style="margin-bottom:6px">Mini player (kept visible for compliance; audio-focused)</div>
             <div class="yt-mini"><div id="yt-player"></div></div>
           </div>
         </article>
@@ -75,7 +76,6 @@
           <div class="row">
             <input type="range" id="vol-rain" min="0" max="100" value="60" />
           </div>
-          <p class="muted">Using local asset when provided.</p>
           <audio id="audio-rain" loop crossorigin="anonymous">
             <source src="public/audio/mixkit-rain-long-loop-2394.mp3" type="audio/mpeg" />
           </audio>
@@ -94,7 +94,6 @@
           <div class="row">
             <input type="range" id="vol-ocean" min="0" max="100" value="55" />
           </div>
-          <p class="muted">Using local asset when provided.</p>
           <audio id="audio-ocean" loop crossorigin="anonymous">
             <source src="public/audio/mixkit-windy-sea-loop-1200.mp3" type="audio/mpeg" />
           </audio>
@@ -113,7 +112,6 @@
           <div class="row">
             <input type="range" id="vol-city" min="0" max="100" value="40" />
           </div>
-          <p class="muted">Using local asset when provided.</p>
           <audio id="audio-city" loop crossorigin="anonymous">
             <source src="public/audio/mixkit-urban-ambient-sound-2465.mp3" type="audio/mpeg" />
           </audio>
@@ -129,7 +127,7 @@
 
     <div class="footer">
       <div class="hint">Tip: Toggle a layer on to start audio (browsers require a click).</div>
-      <div class="hint">MVP scaffolding — effects & assets to be added next.</div>
+      <div class="hint">Made by Tanner Cheek</div>
     </div>
   </div>
 
