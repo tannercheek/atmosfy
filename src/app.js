@@ -17,6 +17,7 @@
     rain:    { buffer: null, source: null, gain: null, toggle: null, slider: null, isPlaying: false },
     ocean:   { buffer: null, source: null, gain: null, toggle: null, slider: null, isPlaying: false },
     city:    { buffer: null, source: null, gain: null, toggle: null, slider: null, isPlaying: false },
+    tavern:  { buffer: null, source: null, gain: null, toggle: null, slider: null, isPlaying: false },
     youtube: { gain: null, toggle: null, slider: null }
   };
 
@@ -183,7 +184,7 @@
   }
 
   window.addEventListener('DOMContentLoaded', () => { 
-    ['rain','ocean','city'].forEach(setupLocalSource); 
+    ['rain','ocean','city','tavern'].forEach(setupLocalSource); 
     setupYouTube(); 
   });
 })();
