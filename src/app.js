@@ -186,5 +186,17 @@
   window.addEventListener('DOMContentLoaded', () => { 
     ['rain','ocean','city','tavern'].forEach(setupLocalSource); 
     setupYouTube(); 
+
+    // Add rain background effect
+    const rainToggle = document.getElementById('toggle-rain');
+    if (rainToggle) {
+      rainToggle.addEventListener('change', () => {
+        if (rainToggle.checked) {
+          document.body.classList.add('rain-active');
+        } else {
+          document.body.classList.remove('rain-active');
+        }
+      });
+    }
   });
 })();

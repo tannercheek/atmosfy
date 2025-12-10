@@ -13,8 +13,9 @@
   <!--Google Font "Instrument Serif" For Logo-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <body>
+    <canvas id="webglCanvas"></canvas>
   <div class="container">
     <!--Header-->
     <header>
@@ -140,7 +141,7 @@
 
     <div class="footer">
       <div class="hint">Tip: Toggle a layer on to start audio (browsers require a click).</div>
-      <div class="hint">Made by Tanner Cheek</div>
+      <div class="hint">Made by Tanner Cheek, clouds by <a class="link" href="https://codepen.io/sujitkoji">@sujitkoji</a></div>
     </div>
   </div>
 
@@ -153,5 +154,7 @@
     })();
   </script>
   <script src="src/app.js"></script>
+  <!-- clouds from https://codepen.io/sujitkoji/pen/GgpbJdj?editors=0010 -->
+  <script src="src/clouds.js"></script>
 </body>
 </html>
